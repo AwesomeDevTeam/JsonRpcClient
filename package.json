@@ -1,0 +1,56 @@
+{
+  "name": "@adt/jsonrpc-client",
+  "version": "0.0.1-SNAPSHOT.1",
+  "license": "MIT",
+  "description" : "Json-rpc client with pluggable transport layers",
+  "main": "dist/JsonRpcClient.cjs.js",
+  "module": "dist/JsonRpcClient.esm.js",
+  "browser": "dist/JsonRpcClient.umd.js",
+  "dependencies": {
+    "@adt/json-rpc": ">0.0.1-SNAPSHOT.0 <0.0.1",
+    "@adt/message-tracker": ">0.0.1-SNAPSHOT.0 <0.0.1",
+    "@adt/event-emitter": ">0.0.1-SNAPSHOT.0 <0.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "eslint": "^4.12.1",
+    "jasmine": "^2.8.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "@adt/json-rpc-transport-providers": ">0.0.1-SNAPSHOT.0 <0.0.1",
+    "rollup-plugin-babel": "^3.0.3"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "build": "rollup -c",
+    "eslint" : "eslint src/*",
+    "prebuild" : "npm run eslint",
+    "pretest" : "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "README.md",
+    "dist"
+  ],
+  "keywords": [
+    "json",
+    "json-rpc",
+    "rpc",
+    "remote",
+    "procedure",
+    "call",
+    "request-response"
+  ],
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/AwesomeDevTeam/JsonRpcClient.git"
+  }
+}
