@@ -45,7 +45,10 @@ export default [
         ],
         plugins: [
             resolve(),
-            commonjs()
+            commonjs(),
+            babel({
+                exclude: "node_modules/**"
+            })
         ]
     }
 
