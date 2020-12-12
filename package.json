@@ -1,6 +1,6 @@
 {
   "name": "@adt/json-rpc-client",
-  "version": "0.0.1-SNAPSHOT.4",
+  "version": "0.0.1-SNAPSHOT.5",
   "license": "MIT",
   "description": "Json-rpc client with pluggable transport layers",
   "main": "dist/JsonRpcClient.cjs.js",
