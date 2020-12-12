@@ -1,13 +1,13 @@
 {
   "name": "@adt/json-rpc-client",
-  "version": "0.0.1-SNAPSHOT.3",
+  "version": "0.0.1-SNAPSHOT.4",
   "license": "MIT",
-  "description" : "Json-rpc client with pluggable transport layers",
+  "description": "Json-rpc client with pluggable transport layers",
   "main": "dist/JsonRpcClient.cjs.js",
   "module": "dist/JsonRpcClient.esm.js",
   "browser": "dist/JsonRpcClient.umd.js",
   "dependencies": {
-    "@adt/json-rpc": ">0.0.1-SNAPSHOT.0 <0.0.1",
+    "@adt/json-rpc": "0.0.1-SNAPSHOT.27",
     "@adt/message-tracker": ">0.0.1-SNAPSHOT.0 <0.0.1",
     "@adt/event-emitter": ">0.0.1-SNAPSHOT.0 <0.0.1"
   },
@@ -27,9 +27,9 @@
   "scripts": {
     "test": "jasmine",
     "build": "rollup -c",
-    "eslint" : "eslint src/*",
-    "prebuild" : "npm run eslint",
-    "pretest" : "npm run build"
+    "eslint": "eslint src/*",
+    "prebuild": "npm run eslint",
+    "pretest": "npm run build"
   },
   "publishConfig": {
     "access": "public"
@@ -48,9 +48,8 @@
     "call",
     "request-response"
   ],
-  "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/AwesomeDevTeam/JsonRpcClient.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AwesomeDevTeam/JsonRpcClient.git"
   }
 }
