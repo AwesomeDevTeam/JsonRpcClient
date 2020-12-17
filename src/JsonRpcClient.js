@@ -187,9 +187,8 @@ export default function JsonRpcClient(c) {
         // otherwise process message as event or request here
         if ( !messageTracker.matchMessage(m) ) {
 
-            if ( typeof m !== "undefined" ) {
-
-
+            if ( typeof m === "object" ) {
+                
                 if ("id" in m) {
                     rObj.id = m.id;
 
