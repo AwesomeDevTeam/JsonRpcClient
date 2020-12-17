@@ -218,6 +218,8 @@ export default function JsonRpcClient(c) {
 
                 }
                 
+            } else {
+                msg = m;
             }
 
             emitter.emit("message", msg);
