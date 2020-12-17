@@ -1,7 +1,7 @@
 // https://github.com/rollup/rollup-starter-lib/blob/master/rollup.config.js
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import babel from "rollup-plugin-babel";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import babel from "@rollup/plugin-babel";
 import pkg from "./package.json";
 
 export default [
@@ -10,14 +10,14 @@ export default [
         input: "src/JsonRpcClient.js",
         output: {
             file: pkg.browser,
-            format: "umd"
+            format: "umd",
+            name: "JsonRpcClient",
         },
-        name: "JsonRpcClient",
         plugins: [
             resolve(),
             commonjs(),
             babel({
-                exclude: "node_modules/**"
+                exclude: "node_modules/**",
             })
         ],
         noConflict : true

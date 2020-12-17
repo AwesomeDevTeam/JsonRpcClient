@@ -175,8 +175,6 @@ export default function JsonRpcClient(c) {
     }
 
     /**
-     * TODO: Co tutaj powinno być parametrem???
-     * Chyba już odseriazliwaony element???
      * @this JsonRpcClient
      * @param {JsonRpcElement}
      */
@@ -211,6 +209,7 @@ export default function JsonRpcClient(c) {
                 }
 
             } else {
+                
                 rObj.method = m.method;
                 rObj.params = m.params;
                 msg = JsonRpcEvent(rObj);
@@ -251,13 +250,14 @@ export default function JsonRpcClient(c) {
      * @this JsonRpcClient
      */
     function filterMessage(o) {
-
-        if ( o.message.id !== o.current.id ) {
+        
+        const m = o?.message;
+        
+        if ( typeof m === "undefined" || m.id !== o.current.id ) {
             return;
         }
-
-        let m = o.message,
-            msg;
+        
+        let msg;
 
         let err = false;
 
