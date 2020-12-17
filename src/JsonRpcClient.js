@@ -187,33 +187,38 @@ export default function JsonRpcClient(c) {
         // otherwise process message as event or request here
         if ( !messageTracker.matchMessage(m) ) {
 
-            if ("id" in m) {
-                rObj.id = m.id;
+            if ( typeof m !== "undefined" ) {
 
-                if ("result" in m) {
-                    rObj.result = m.result;
-                    msg = JsonRpcResponseResult(rObj);
-                }
 
-                if ("error" in m) {
-                    msg = JsonRpcResponseError({
-                        id: m.id,
-                        error: JsonRpcError(m.error)
-                    });
-                }
+                if ("id" in m) {
+                    rObj.id = m.id;
 
-                if ("method" in m) {
+                    if ("result" in m) {
+                        rObj.result = m.result;
+                        msg = JsonRpcResponseResult(rObj);
+                    }
+
+                    if ("error" in m) {
+                        msg = JsonRpcResponseError({
+                            id: m.id,
+                            error: JsonRpcError(m.error)
+                        });
+                    }
+
+                    if ("method" in m) {
+                        rObj.method = m.method;
+                        rObj.params = m.params;
+                        msg = JsonRpcRequest(rObj);
+                    }
+
+                } else {
+
                     rObj.method = m.method;
                     rObj.params = m.params;
-                    msg = JsonRpcRequest(rObj);
+                    msg = JsonRpcEvent(rObj);
+
                 }
-
-            } else {
                 
-                rObj.method = m.method;
-                rObj.params = m.params;
-                msg = JsonRpcEvent(rObj);
-
             }
 
             emitter.emit("message", msg);
